@@ -1,12 +1,10 @@
-
 import * as React from 'react';
 
+export interface HelloWorldProps{
+  userName: string;
+  lang: string;
+}
 
-const App: React.FC = () =>{
-  return(
-    <div>
-      THIS IS REDKAMO PAGE IN BUILDING
-    </div>
-  )
-} 
-export default App;
+export const App = (props: HelloWorldProps) => (
+  <div>{props.userName} from React! Welcome to {props.lang}!</div>
+)
