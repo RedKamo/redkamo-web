@@ -1,8 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import { App } from './App';
+import Helloworld from './components/HelloWorld' ;
 
-ReactDOM.render( 
-  <App userName="RedKamo" lang="Typescript" />,
-   document.getElementById("root"));
+
+ReactDOM.render(<Helloworld />, document.getElementById("root"));
