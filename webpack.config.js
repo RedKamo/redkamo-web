@@ -20,6 +20,14 @@ const config = {
         exclude: /node_modules/
       },
       {
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'html-loader'
+          }
+        ]
+      },
+      {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
@@ -28,8 +36,8 @@ const config = {
         exclude: /\.module\.css$/
       },
       {
-        test: /\.ts(x)?$/,
-        loader: 'awesome-typescript-loader',
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
         exclude: /node_modules/
       },
       {
@@ -55,29 +63,20 @@ const config = {
         ]
       },
       {
-        test: /\.svg$/,
-        use: 'file-loader'
-      },
-      {
-        test: /\.png$/,
-        use: [
+        test: /\.(jpe?g|png|gif|svg|ico)$/i,
+        use:[
           {
-            loader: 'url-loader',
-            options: {
-              mimetype: 'image/png'
+            loader: "file-loader",
+            options:{
+              outputPath: "assets/"
             }
           }
-        ]
-      }
-    ]
+        ],
+      },
+    ],
   },
   resolve: {
-    extensions: [
-      '.js',
-      '.jsx',
-      '.tsx',
-      '.ts'
-    ]
+    extensions: ['.js','.jsx','.tsx','.ts']
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
