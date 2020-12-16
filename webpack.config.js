@@ -6,16 +6,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   entry: [
     'react-hot-loader/patch',
-    './src/index.tsx'
+    './src/index.tsx',
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
-  devtool: "source-map",
-  resolve: {
-    extensions: [".ts",".tsx",".js",".jsx",".json"]
-  },
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
