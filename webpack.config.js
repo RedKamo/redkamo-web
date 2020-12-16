@@ -1,4 +1,91 @@
-const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+
+module.exports = {
+  entry: [
+    'react-hot-loader/patch',
+    './src/index.tsx'
+  ],
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js'
+  },
+  devtool: "source-map",
+  resolve: {
+    extensions: [".ts",".tsx",".js",".jsx",".json"]
+  },
+  module: {
+    rules: [
+      {
+        test: /\.html$/i,
+        use: 'html-loader'
+      },
+      {
+        test: /\.css$/i,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      },
+      {
+        test: /\.styl$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'stylus-loader',
+          }
+        ]
+      },
+      {
+        test: /\.ts(x)?$/,
+        loader: "ts-loader",
+        exclude: /node_modules/
+      }, 
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        loader: 'file-loader',
+      },
+    ],
+  },
+  resolve: {
+    extensions:['.tsx','.ts','.js'],
+    alias:{
+      'react-dom': '@hot-loader/react-dom'
+    }
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 4000
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./public/index.html"
+    }),
+    new MiniCssExtractPlugin()
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -92,3 +179,4 @@ const config = {
 };
 
 module.exports = config;
+ */

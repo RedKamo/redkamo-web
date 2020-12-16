@@ -11,13 +11,18 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitAny": true,
-    "module": "es6",
+    "module": "CommonJS",
+    "lib": ["DOM", "ES2015.Promise", "ES5"],
     "isolatedModules": true,
     "resolveJsonModule": true,
     "moduleResolution": "node",
+    "preserveConstEnums": true,
     "target": "es5",
     "allowJs": true,
     "jsx": "react",
+    "typeRoots": [
+      "custom_typings"
+    ]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "build"]
