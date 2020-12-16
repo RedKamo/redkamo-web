@@ -16,11 +16,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.html$/i,
+        test: /\.html$/,
         use: 'html-loader'
       },
       {
-        test: /\.css$/i,
+        test: /\.css$/,
         use: [
           'style-loader',
           'css-loader'
@@ -43,7 +43,14 @@ module.exports = {
       }, 
       {
         test: /\.(png|jpe?g|gif)$/i,
-        loader: 'file-loader',
+        use:[
+          {
+            loader: 'file-loader',
+            options: {
+              esModule: false,
+            },
+          },
+        ],
       },
     ],
   },
@@ -56,6 +63,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
+    //publicPath: '/dist',
     port: 4000
   },
   plugins: [
