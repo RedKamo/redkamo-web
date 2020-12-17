@@ -16,7 +16,7 @@ function HelloWorld(): JSX.Element {
     <div className="container">
       <div className="container__card">
         <div className="container__card--info">
-          <h1>Hi, Im <span className="change">Red</span>Kamo a FrontEnd developer and this Website its under Construction</h1>
+          <h1>Hi, I'm <span className="change">Red</span>Kamo a FrontEnd developer and this Website its under Construction</h1>
         </div>
         <div className="container__card--social">
           <a href="https://twitter.com/RedKamo_" target="_blank"><FaTwitter size={60} /></a>
